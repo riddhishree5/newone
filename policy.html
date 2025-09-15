@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy - Riddhi Stack IT  Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #3b82f6;
+            --accent: #7c3aed;
+            --light: #f8fafc;
+            --dark: #1e293b;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .login-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: var(--secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Policy Hero Section */
+        .policy-hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Policy Content Section */
+        .policy-section {
+            padding: 80px 0;
+        }
+
+        .policy-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 50px;
+            margin-bottom: 50px;
+        }
+
+        .policy-title {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .policy-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #64748b;
+        }
+
+        .policy-content strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .policy-content h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+            color: var(--primary);
+        }
+
+        .policy-list {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .policy-list li {
+            margin-bottom: 10px;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-about {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .footer-social {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #cbd5e1;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        .call-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 20px;
+            display: inline-block;
+            width: fit-content;
+            transition: all 0.3s;
+            animation: shrink 2s infinite;
+        }
+
+        .call-button:hover {
+            background-color: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes shrink {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+                z-index: 999;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .policy-hero {
+                padding: 130px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .policy-section {
+                padding: 60px 0;
+            }
+            
+            .policy-container {
+                padding: 30px 20px;
+            }
+            
+            .policy-title {
+                font-size: 1.8rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .policy-hero {
+                padding: 110px 0 40px;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .policy-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <img src="Add a heading.png" alt="Riddhi Stack IT  Logo" class="logo">
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Freelancing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                
+                <!--<button class="login-btn">Login</button>  -->
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Policy Hero Section -->
+    <section class="policy-hero">
+        <div class="container">
+            <h1 class="hero-title">Our Policies</h1>
+            <p class="hero-subtitle">Transparent and fair policies designed to protect both our clients and our business.</p>
+        </div>
+    </section>
+
+    <!-- Policy Content Section -->
+    <section class="policy-section">
+        <div class="container">
+            <div class="policy-container">
+                <h2 class="policy-title">Cancellation & Refund Policy</h2>
+                
+                <div class="policy-content">
+                    <p>
+                        At Riddhi Stack IT  Solutions, we aim to ensure complete satisfaction with our services. However, if you wish to cancel a service or request a refund, the following terms apply:
+                    </p>
+                    
+                    <h3>Cancellation Terms</h3>
+                    <ul class="policy-list">
+                        <li>Cancellations must be requested within 7 days of service initiation.</li>
+                        <li>After 7 days, cancellations may not be eligible for a refund.</li>
+                        <li>For subscription-based services, cancellation requests must be made before the renewal date to avoid future charges.</li>
+                    </ul>
+                    
+                    <h3>Refund Terms</h3>
+                    <ul class="policy-list">
+                        <li>Refunds will be processed within 10-15 business days after approval.</li>
+                        <li>Refunds will be credited to the original payment method used during the transaction.</li>
+                        <li>No refunds will be provided for partially used services.</li>
+                    </ul>
+                    
+                    <h3>Exceptions</h3>
+                    <p>
+                        In cases where a service is delayed due to unforeseen circumstances or technical issues, refunds may be considered at the sole discretion of Riddhi Stack IT  Solutions.
+                    </p>
+                    
+                    <h3>Contact Us</h3>
+                    <p>
+                        If you have any questions regarding our Cancellation & Refund Policy, please contact us at <strong>info@Riddhi Stack IT .example</strong>.
+                    </p>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="service.html" class="action-btn btn-primary">See What We Do</a>
+                    <a href="contact.html" class="action-btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="Add a heading.png" alt="Riddhi Stack IT  Logo" class="footer-logo">
+                    <p class="footer-about">Transforming ideas into digital reality with cutting-edge solutions and expert team.</p>
+                    
+                    <div class="footer-social">
+                        <div class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="policy.html">Privacy Policy</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-heading">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Website Development</a></li>
+                        <li><a href="#">Full Stack Solutions</a></li>
+                        <li><a href="#">SEO Optimization</a></li>
+                        <li><a href="#">Graphic Design</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">PPC Advertisement</a></li>
+                        <li><a href="#">Email Marketing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Tower House,E-Champaran, Bihar</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>www.riddhistack.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>riddhistackdigital@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9519553053</span>
+                        </div>
+                        
+                        <button class="call-button">
+                            <i class="fas fa-phone-alt"></i> Call Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Copyright © 2025 Riddhi Stack IT  Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle - Fixed
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-links') && !e.target.closest('.mobile-menu-btn') && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Text Carousel
+        const textElements = [
+            "Website Development",
+            "SEO Optimization",
+            "Graphic Design",
+            "PPC Advertisement",
+            "Email Marketing"
+        ];
+        
+        const typeTextElement = document.querySelector('.type-text');
+        const cursorElement = document.querySelector('.type-cursor');
+        const indicators = document.querySelectorAll('.indicator');
+        const carouselImage = document.querySelector('.carousel-image img');
+        
+        const imageUrls = [
+            "https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80",
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80",
+            "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80",
+            "https://images.unsplash.com/photo-1665686374006-b8f04cf62d57?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80",
+            "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80"
+        ];
+        
+        let currentIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isEnd = false;
+        
+        function typeEffect() {
+            isEnd = false;
+            
+            // Get current text
+            const currentText = textElements[currentIndex];
+            
+            if (isDeleting) {
+                // Remove char
+                typeTextElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // Add char
+                typeTextElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            // Initial typing speed
+            let typeSpeed = isDeleting ? 50 : 100;
+            
+            // If word is complete
+            if (!isDeleting && charIndex === currentText.length) {
+                isEnd = true;
+                isDeleting = true;
+                typeSpeed = 1500; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                currentIndex = (currentIndex + 1) % textElements.length;
+                typeSpeed = 500;
+                
+                // Update active indicator
+                indicators.forEach((indicator, idx) => {
+                    indicator.classList.toggle('active', idx === currentIndex);
+                });
+                
+                // Update image with transition effect
+                carouselImage.style.opacity = 0;
+                setTimeout(() => {
+                    carouselImage.src = imageUrls[currentIndex];
+                    carouselImage.style.opacity = 1;
+                }, 500);
+            }
+            
+            setTimeout(typeEffect, typeSpeed);
+        }
+        
+        // Start the typing effect
+        setTimeout(typeEffect, 1000);
+        
+        // Click on indicators
+        indicators.forEach((indicator, idx) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = idx;
+                charIndex = 0;
+                isDeleting = false;
+                
+                // Update active indicator
+                indicators.forEach((ind, i) => {
+                    ind.classList.toggle('active', i === currentIndex);
+                });
+                
+                // Update image
+                carouselImage.style.opacity = 0;
+                setTimeout(() => {
+                    carouselImage.src = imageUrls[currentIndex];
+                    carouselImage.style.opacity = 1;
+                }, 500);
+                
+                // Update text immediately
+                typeTextElement.textContent = textElements[currentIndex];
+            });
+        });
+        
+        // Image transition effect
+        carouselImage.style.transition = 'opacity 0.5s ease';
+
+        
+    </script>
+
+
+</body>
+</html>

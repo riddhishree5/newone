@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Hero Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #3b82f6;
+            --accent: #7c3aed;
+            --light: #f8fafc;
+            --dark: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .hero-carousel {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .container {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 500px;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(30, 41, 59, 0.9), transparent);
+            color: var(--light);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .slide-title {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            opacity: 1;
+            transform: scale(1.2);
+            background-color: var(--accent);
+        }
+
+        .indicator:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+
+        /* Animation for text */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-content > * {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .carousel-slides {
+                height: 400px;
+            }
+            
+            .slide-title {
+                font-size: 1.8rem;
+            }
+            
+            .slide-description {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-slides {
+                height: 350px;
+            }
+            
+            .slide-title {
+                font-size: 1.6rem;
+            }
+            
+            .slide-description {
+                font-size: 1rem;
+            }
+            
+            .slide-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .carousel-slides {
+                height: 300px;
+            }
+            
+            .slide-title {
+                font-size: 1.4rem;
+            }
+            
+            .slide-description {
+                font-size: 0.9rem;
+            }
+            
+            .slide-content {
+                padding: 1rem;
+            }
+            
+            .indicator {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        /* Header styling */
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            color: var(--dark);
+            opacity: 0.8;
+            font-size: 1.2rem;
+        }
+
+        /* Footer styling */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: var(--dark);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <h1 class="page-title">Modern Hero Carousel</h1>
+        <p class="page-subtitle">Responsive design for all devices</p>
+    </div>
+
+    <!-- Hero Carousel Section -->
+    <section class="hero-carousel">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel-slides">
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Our Team">
+                        <div class="slide-content">
+                            <h2 class="slide-title">Our Amazing Team</h2>
+                            <p class="slide-description">Dedicated professionals working together to deliver exceptional results.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Our Office">
+                        <div class="slide-content">
+                            <h2 class="slide-title">Modern Workspace</h2>
+                            <p class="slide-description">Our innovative office environment fosters creativity and collaboration.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Technology">
+                        <div class="slide-content">
+                            <h2 class="slide-title">Cutting-Edge Technology</h2>
+                            <p class="slide-description">We use the latest tools and technologies to deliver superior solutions.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Client Meeting">
+                        <div class="slide-content">
+                            <h2 class="slide-title">Client Collaboration</h2>
+                            <p class="slide-description">We work closely with our clients to understand their unique needs.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Awards">
+                        <div class="slide-content">
+                            <h2 class="slide-title">Industry Recognition</h2>
+                            <p class="slide-description">Our work has been recognized with numerous awards and accolades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-indicators">
+                <div class="indicator active" data-index="0"></div>
+                <div class="indicator" data-index="1"></div>
+                <div class="indicator" data-index="2"></div>
+                <div class="indicator" data-index="3"></div>
+                <div class="indicator" data-index="4"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <p>Responsive Hero Carousel © 2023. All rights reserved.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel-slides');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('.indicator');
+            let currentIndex = 0;
+            let interval;
+            
+            // Function to update carousel position
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Function to move to a specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+                resetInterval();
+            }
+            
+            // Function to move to next slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel();
+            }
+            
+            // Function to start auto-play
+            function startInterval() {
+                interval = setInterval(nextSlide, 4000);
+            }
+            
+            // Function to reset interval
+            function resetInterval() {
+                clearInterval(interval);
+                startInterval();
+            }
+            
+            // Add click events to indicators
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    goToSlide(index);
+                });
+            });
+            
+            // Initialize carousel
+            updateCarousel();
+            startInterval();
+            
+            // Pause on hover
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(interval);
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                startInterval();
+            });
+            
+            // Touch events for mobile swipe
+            let startX = 0;
+            let endX = 0;
+            
+            carousel.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+                clearInterval(interval);
+            });
+            
+            carousel.addEventListener('touchmove', function(e) {
+                endX = e.touches[0].clientX;
+            });
+            
+            carousel.addEventListener('touchend', function() {
+                handleSwipe();
+                startInterval();
+            });
+            
+            function handleSwipe() {
+                const diff = startX - endX;
+                
+                // Minimum swipe distance
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        // Swipe left - next slide
+                        nextSlide();
+                    } else {
+                        // Swipe right - previous slide
+                        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                        updateCarousel();
+                    }
+                    resetInterval();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

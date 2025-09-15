@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SkyVision Drones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --bs-blue: #0d6efd;
+            --bs-indigo: #6610f2;
+            --bs-purple: #6f42c1;
+            --bs-pink: #d63384;
+            --bs-red: #dc3545;
+            --bs-orange: #fd7e14;
+            --bs-yellow: #ffc107;
+            --bs-green: #198754;
+            --bs-teal: #20c997;
+            --bs-cyan: #0dcaf0;
+            --bs-white: #fff;
+            --bs-gray: #6c757d;
+            --bs-gray-dark: #343a40;
+            --bs-primary: #015FC9;
+            --bs-secondary: #0BE1FF;
+            --bs-success: #198754;
+            --bs-info: #0dcaf0;
+            --bs-warning: #ffc107;
+            --bs-danger: #dc3545;
+            --bs-light: #F2F5F9;
+            --bs-dark: #16243D;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: var(--bs-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--bs-primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            font-size: 28px;
+            margin-right: 10px;
+            color: var(--bs-primary);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--bs-dark);
+            margin: 0 10px;
+        }
+
+        .nav-link:hover {
+            color: var(--bs-primary);
+        }
+
+        .btn-primary {
+            background-color: var(--bs-primary);
+            border-color: var(--bs-primary);
+            padding: 10px 20px;
+            font-weight: 600;
+            border-radius: 6px;
+        }
+
+        .btn-primary:hover {
+            background-color: #014aa5;
+            border-color: #014aa5;
+        }
+
+        .about-hero {
+            padding: 100px 0;
+            background: linear-gradient(rgba(22, 36, 61, 0.7), rgba(22, 36, 61, 0.7)), url('https://images.unsplash.com/photo-1464983953574-0892a716854b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1440&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-weight: 700;
+            color: var(--bs-dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--bs-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-body {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: var(--bs-dark);
+            margin-bottom: 15px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--bs-primary);
+        }
+
+        .cta-section {
+            background-color: var(--bs-primary);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: var(--bs-dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--bs-secondary);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .social-icons a:hover {
+            color: var(--bs-secondary);
+        }
+
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-logo {
+            font-size: 48px;
+            color: var(--bs-primary);
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .progress {
+            height: 6px;
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            padding: 50px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background-color: var(--bs-primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+            width: 50%;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: var(--bs-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            top: 0;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-icon {
+            right: -25px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-icon {
+            left: -25px;
+        }
+
+        .timeline-year {
+            font-weight: bold;
+            color: var(--bs-primary);
+            margin-bottom: 10px;
+        }
+
+        /* Team section */
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 5px solid var(--bs-light);
+        }
+
+        .team-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .team-role {
+            color: var(--bs-primary);
+            margin-bottom: 15px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                text-align: left !important;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-icon {
+                left: 20px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-icon {
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .footer {
+                text-align: center;
+            }
+            
+            .footer .col-md-3 {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.1rem;
+            }
+            
+            .about-hero {
+                padding: 70px 0;
+            }
+            
+            .about-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-primary {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <i class="bi bi-camera-video"></i>
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-camera-video"></i> SkyVision Drones
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-primary ms-3 d-none d-lg-block">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Our Journey Towards Smarter Aerial Solutions</p>
+        </div>
+    </section>
+
+    <!-- Company Introduction -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <p class="lead">At SkyVision Drones, we believe the sky is not the limit—it's the beginning. Founded with a mission to redefine efficiency through aerial innovation, we deliver UAV solutions that empower industries to achieve more. From precision agriculture to large-scale industrial inspections, our drones are shaping a smarter, safer, and more connected future.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission, Vision & Values -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Principles</h2>
+                <p>What drives us to innovate and excel</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="feature-icon">
+                                <i class="bi bi-bullseye"></i>
+                            </div>
+                            <h3 class="card-title">Mission</h3>
+                            <p class="card-text">To develop UAV solutions that improve efficiency, safety, and sustainability across industries.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="feature-icon">
+                                <i class="bi bi-eye"></i>
+                            </div>
+                            <h3 class="card-title">Vision</h3>
+                            <p class="card-text">To become a global leader in UAV technology, driving innovation and creating positive impact worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="feature-icon">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                            <h3 class="card-title">Values</h3>
+                            <p class="card-text">Innovation, Reliability, Safety, Sustainability, and Customer-Centric Service.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey / Roadmap -->
+    <section class="py-5">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Journey</h2>
+                <p>Milestones in our growth and innovation</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018 🚀</div>
+                        <h4>Idea Took Flight</h4>
+                        <p>Our journey began with a vision to revolutionize businesses through drones.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="bi bi-rocket"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019 🛠</div>
+                        <h4>Prototype Development</h4>
+                        <p>We built our first UAV prototype and conducted successful test flights.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="bi bi-tools"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020 🌾</div>
+                        <h4>Agriculture Solutions Launched</h4>
+                        <p>Introduced precision farming drones to improve crop yields and efficiency.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="bi bi-tree"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021 🏗</div>
+                        <h4>Industrial & Infrastructure Expansion</h4>
+                        <p>Deployed drones for safe and accurate industrial inspections.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="bi bi-building"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022 📦</div>
+                        <h4>Logistics & Delivery Services</h4>
+                        <p>Partnered with businesses to provide last-mile drone delivery.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="bi bi-box"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023 🔒</div>
+                        <h4>Security & Surveillance Integration</h4>
+                        <p>Launched AI-powered UAVs for advanced aerial monitoring.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024 & Beyond ✈️</div>
+                        <h4>Scaling Globally</h4>
+                        <p>Expanding services internationally to bring UAV innovation worldwide.</p>
+                    </div>
+                    <div class="timeline-icon">
+                        <i class="bi bi-globe"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+                <p>The passionate experts behind our success</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center mb-5">
+                    <p>Our passionate team of engineers, AI experts, and UAV specialists work together to design reliable and future-ready drones. With expertise in aeronautics, robotics, and electronics, our people are the driving force behind our success.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Team Member" class="team-img">
+                        <h4 class="team-name">Sarah Johnson</h4>
+                        <p class="team-role">Chief Executive Officer</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Team Member" class="team-img">
+                        <h4 class="team-name">Michael Chen</h4>
+                        <p class="team-role">Head of Engineering</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Team Member" class="team-img">
+                        <h4 class="team-name">Priya Sharma</h4>
+                        <p class="team-role">AI Research Director</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Want to be part of our journey?</h2>
+            <p class="mb-4">Contact us today and let's innovate together.</p>
+            <a href="#" class="btn btn-light">Contact Us Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">SkyVision Drones</h5>
+                    <p>Future-ready UAV Solutions for a Smarter World</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Our Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Aerial Mapping</a></li>
+                        <li><a href="#">Agriculture Monitoring</a></li>
+                        <li><a href="#">Industrial Inspections</a></li>
+                        <li><a href="#">Logistics & Delivery</a></li>
+                        <li><a href="#">Security & Surveillance</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="footer-title">Contact Info</h5>
+                    <ul class="footer-links">
+                        <li><i class="bi bi-geo-alt"></i> 123 Innovation Drive, Tech City</li>
+                        <li><i class="bi bi-telephone"></i> +91-XXXXXXXXXX</li>
+                        <li><i class="bi bi-envelope"></i> info@skyvision.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center pt-4 border-top border-secondary">
+                <p>&copy; 2023 SkyVision Drones. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Loader animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.querySelector('.loader');
+            const progressBar = document.querySelector('.progress-bar');
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 5;
+                progressBar.style.width = `${progress}%`;
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
